@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import { Parser } from 'html-to-react'
 function Posts() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -20,13 +20,14 @@ function Posts() {
               <Link to={`/posts/${post.id}`}>
                 <h3>{post.title}</h3>
               </Link>
-              <span>
+              {/* <span>
                 <button className="edit">EDIT</button>
                 <button className="delete">DELETE</button>
-              </span>
+              </span> */}
             </div>
             <div className="published">Published: {post.created}</div>
-            <p>{post.content}</p>
+            {/* <p>{post.content}</p> */}
+            <div>{Parser().parse(post.content)}</div>
           </div>
         );
       })}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Parser } from 'html-to-react'
 import axios from "axios";
 
 export default function Post() {
@@ -22,7 +23,7 @@ export default function Post() {
         </span>
       </div>
       <div className="published">Published: {post.created}</div>
-      <p>{post.content}</p>
+      <div>{Parser().parse(post.content)}</div>
       <button onClick={() => navigate("/")}>Go back</button>
     </div>
   );

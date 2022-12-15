@@ -3,17 +3,15 @@ import "./App.css";
 import Header from "./components/Header";
 import Posts from "./components/Posts";
 import Post from "./components/Post";
-import PostEditor from "./components/PostEditor";
 
 function App() {
   return (
     <div className="container">
-        <Header />
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Posts />} />
           <Route path="/posts/:id" element={<Post />} />
-          <Route path="/new_post" element={<PostEditor />} />
         </Routes>
       </BrowserRouter>
     </div>
